@@ -1,0 +1,23 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: url('../images/watercolor.png');
+    .admin-img-fluid {
+        width: 100%;
+        max-width: 200px;
+    }
+    .carousel-caption {
+        color: slategray;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', serif;
+}
+
+a {
+    list-style-type: none;
+}
+
+.btn_list {
+    background-color: lightcoral;
+}

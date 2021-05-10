@@ -1,0 +1,16 @@
+vich_uploader:
+   db_driver: orm
+
+   mappings:
+      carousels:
+         uri_prefix: /images/carousels
+         upload_destination: '%kernel.project_dir%/public/images/carousels'
+         namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+         delete_on_update: true
+         delete_on_remove: true
+      auteurs:
+         uri_prefix: /images/auteurs
+         upload_destination: '%kernel.project_dir%/public/images/auteurs'
+         namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+         delete_on_update: true
+         delete_on_remove: true

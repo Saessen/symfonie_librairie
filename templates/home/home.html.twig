@@ -1,0 +1,54 @@
+{% extends "base-front.html.twig" %}
+{% block title %}📖 Bienvenue à La Librairie 📖{% endblock %}
+{% block body %} 
+{# CAROUSEL #}
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+    {% for slide in slides %}
+        {% if loop.index0 == 0 %}
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{loop.index0}}" class="active" aria-current="true" aria-label="Slide {{loop.index0}}"></button>
+        {% else %}
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{loop.index0}}" aria-label="Slide {{loop.index0}}"></button>
+        {% endif %}
+    {% endfor %}   
+    </div>
+    <div class="carousel-inner">
+    {% for slide in slides %}
+        {% if loop.index0 == 0 %}
+        <div class="carousel-item active">
+        {% else %}
+        <div class="carousel-item">
+        {% endif %}
+            <img src="{{asset('../images/carousels/' ~ slide.image)}}" class="d-block w-100" alt="...">
+            {% if slide.titre is defined and slide.titre is not null or slide.texte is defined and slide.texte is not null %}
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>
+                        {% if slide.titre is defined and slide.titre is not null %}
+                            {{slide.titre}}
+                        {% endif %}
+                    </h5>
+                    <p>
+                        {% if slide.texte is defined and slide.texte is not null %}
+                            {{slide.texte}}
+                        {% endif %}
+                    </p>
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+{# FIN CAROUSEL #}
+<h1>{{home.titre}}</h1>
+<p>{{home.texte}}</p>
+<p class="signature">{{home.signature}}</p>
+{% endblock %}
+
